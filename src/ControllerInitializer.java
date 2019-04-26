@@ -25,6 +25,7 @@ public class ControllerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new CorsHandler(corsConfig));
         pipeline.addLast(new HttpObjectAggregator(10*1024*1024));
         pipeline.addLast(new ControllerHandler());
+        pipeline.addLast(new QueueHandler());
     }
 
 }
